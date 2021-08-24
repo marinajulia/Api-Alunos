@@ -15,16 +15,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.Linq" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Alunos.SharedKernel\Alunos.SharedKernel.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Service\Alunos\Dto\" />
-    <Folder Include="Service\Materias\Dto\" />
-    <Folder Include="Service\Professores\Dto\" />
   </ItemGroup>
 
 </Project>

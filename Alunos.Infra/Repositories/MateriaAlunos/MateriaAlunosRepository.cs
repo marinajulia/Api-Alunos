@@ -35,7 +35,24 @@ namespace Alunos.Infra.Repositories.MateriaAlunos
             }
         }
 
-        public IEnumerable<MateriaAlunosEntity> GetByNameAluno(string nomeAluno)
+        public MateriaAlunosEntity GetByIdAluno(int id)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var aluno = context.MateriaAlunos.FirstOrDefault(x => x.IdAlunos == id);
+                return aluno;
+            }
+        }
+
+        public MateriaAlunosEntity GetByIdMateria(int id)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var materia = context.MateriaAlunos.FirstOrDefault(x => x.IdMaterias == id);
+                return materia;
+            }
+        }
+            public IEnumerable<MateriaAlunosEntity> GetByNameAluno(string nomeAluno)
         {
             throw new System.NotImplementedException();
         }

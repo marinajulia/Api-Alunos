@@ -47,6 +47,15 @@ namespace Alunos.Infra.Repositories.Alunos
             }
         }
 
+        public AlunosEntity GetByRa(string ra)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var aluno = context.Alunos.FirstOrDefault(x => x.RA == ra);
+                return aluno;
+            }
+        }
+
         public AlunosEntity Post(AlunosEntity aluno)
         {
             using (var context = new ApplicationContext())

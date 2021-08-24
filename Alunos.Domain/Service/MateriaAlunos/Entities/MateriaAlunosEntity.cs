@@ -15,7 +15,7 @@ namespace Alunos.Domain.Service.MateriaAlunos
         public AlunosEntity Alunos  { get; set; }
 
         [ForeignKey("Materias")]
-        public int IdAMaterias { get; set; }
+        public int IdMaterias { get; set; }
         public MateriasEntity Materias { get; set; }
     }
 }
