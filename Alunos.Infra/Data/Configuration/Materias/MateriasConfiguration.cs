@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Alunos.Domain.Service.Materias.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Alunos.Infra.Data.Configuration.Materias
 {
-    class MateriasConfiguration
+    public class MateriasConfiguration : IEntityTypeConfiguration<MateriasEntity>
     {
+        public void Configure(EntityTypeBuilder<MateriasEntity> builder)
+        {
+            builder.ToTable("Materias");
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.Nome).IsRequired();
+        }
     }
 }

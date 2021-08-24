@@ -21,4 +21,10 @@
     <ProjectReference Include="..\Alunos.SharedKernel\Alunos.SharedKernel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Service\Alunos\Dto\" />
+    <Folder Include="Service\Materias\Dto\" />
+    <Folder Include="Service\Professores\Dto\" />
+  </ItemGroup>
+
 </Project>

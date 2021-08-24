@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Alunos.Domain.Service.Alunos.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Alunos.Infra.Data.Configuration.Alunos
 {
-    class AlunosConfiguration
+    public class AlunosConfiguration : IEntityTypeConfiguration<AlunosEntity>
     {
+        public void Configure(EntityTypeBuilder<AlunosEntity> builder)
+        {
+            builder.ToTable("Alunos");
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.Nome).IsRequired();
+        }
     }
 }

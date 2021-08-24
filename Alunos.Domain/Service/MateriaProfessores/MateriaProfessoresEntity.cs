@@ -1,4 +1,5 @@
-﻿using Alunos.Domain.Service.Professores.Entities;
+﻿using Alunos.Domain.Service.Materias.Entities;
+using Alunos.Domain.Service.Professores.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,5 +13,9 @@ namespace Alunos.Domain.Service.MateriaProfessores
         [ForeignKey("Professores")]
         public int IdProfessores { get; set; }
         public ProfessoresEntity Professores { get; set; }
+
+        [ForeignKey("Materias")]
+        public int IdAMaterias { get; set; }
+        public MateriasEntity Materias { get; set; }
     }
 }
