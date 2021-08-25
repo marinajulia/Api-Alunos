@@ -47,6 +47,16 @@ namespace Alunos.Infra.Repositories.Professores
             }
         }
 
+        public ProfessoresEntity GetNames(string name)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var professor = context.Professores.FirstOrDefault(x => x.Nome == name);
+
+                return professor;
+            }
+        }
+
         public ProfessoresEntity Post(ProfessoresEntity professor)
         {
             using (var context = new ApplicationContext())

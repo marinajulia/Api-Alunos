@@ -10,7 +10,7 @@ namespace Alunos.Infra.Data.Configuration.MateriaAlunos
             builder.ToTable("MateriaAlunos");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.IdAlunos).IsRequired();
-            builder.Property(p => p.IdAMaterias).IsRequired();
+            builder.Property(p => p.IdMaterias).IsRequired();
         }
     }
 }

@@ -78,7 +78,7 @@ namespace Alunos.Domain.Service.Professores
             if (professor.Nome == "")
                 return _notification.AddWithReturn<ProfessoresDto>("Ops, você não pode inserir um campo vazio");
 
-            var consultaProfessor = _professoresRepository.GetByName(professor.Nome);
+            var consultaProfessor = _professoresRepository.GetNames(professor.Nome);
             if (consultaProfessor != null)
                 return _notification.AddWithReturn<ProfessoresDto>("Ops.. este professor já está cadastrado");
 
