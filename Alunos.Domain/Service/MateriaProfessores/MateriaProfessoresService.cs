@@ -38,7 +38,7 @@ namespace Alunos.Domain.Service.MateriaProfessores
                 Id = x.Id,
                 IdProfessores = x.IdProfessores,
                 IdMaterias = x.IdMaterias
-            });
+            }).ToList();
         }
 
         public MateriaProfessoresDto GetById(int id)

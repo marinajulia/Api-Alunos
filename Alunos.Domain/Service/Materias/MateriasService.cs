@@ -53,7 +53,7 @@ namespace Alunos.Domain.Service.Materias
             {
                 Id = x.Id,
                 Nome = x.Nome
-            });
+            }).ToList(); ;
         }
 
         public MateriasDto GetById(int id)
@@ -78,7 +78,7 @@ namespace Alunos.Domain.Service.Materias
             {
                 Id = x.Id,
                 Nome = x.Nome
-            });
+            }).ToList();
         }
 
         public MateriasDto Post(MateriasDto materiaDto)

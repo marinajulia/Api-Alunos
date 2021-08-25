@@ -1,5 +1,6 @@
 ﻿using Alunos.Domain.Service.MateriaAlunos;
 using Alunos.Infra.Data;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,7 +22,9 @@ namespace Alunos.Infra.Repositories.MateriaAlunos
         {
             using (var context = new ApplicationContext())
             {
-                var materiaAlunos = context.MateriaAlunos;
+                var materiaAlunos = context.MateriaAlunos
+                    .Include(x=> x.Alunos)
+                    .Include(x=> x.Materias);
                 return materiaAlunos.ToList();
             }
         }
@@ -40,7 +43,10 @@ namespace Alunos.Infra.Repositories.MateriaAlunos
         {
             using (var context = new ApplicationContext())
             {
-                var materiaAluno = context.MateriaAlunos.FirstOrDefault(x => x.Id == id);
+                var materiaAluno = context.MateriaAlunos
+                    .Include(x => x.Alunos)
+                    .Include(x => x.Materias)
+                    .FirstOrDefault(x => x.Id == id);
                 return materiaAluno;
             }
         }

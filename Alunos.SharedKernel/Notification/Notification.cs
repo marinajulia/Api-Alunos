@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Alunos.SharedKernel.Notification
 {
-    public class Notification
+    public class Notification : INotification
     {
         private List<DomainNotification> _notifications;
 

@@ -35,8 +35,10 @@ namespace Alunos.Domain.Service.MateriaAlunos
             {
                 Id = x.Id,
                 IdAlunos = x.IdAlunos,
-                IdMaterias = x.IdMaterias
-            });
+                IdMaterias = x.IdMaterias,
+                Alunos = x.Alunos,
+                Materias = x.Materias,
+            }).ToList();
         }
 
         public MateriaAlunosDto GetById(int id)
@@ -49,7 +51,9 @@ namespace Alunos.Domain.Service.MateriaAlunos
             {
                 Id = materiaAluno.Id,
                 IdAlunos = materiaAluno.IdAlunos,
-                IdMaterias = materiaAluno.IdMaterias
+                IdMaterias = materiaAluno.IdMaterias,
+                Alunos = materiaAluno.Alunos,
+                Materias = materiaAluno.Materias,
             };
         }
 

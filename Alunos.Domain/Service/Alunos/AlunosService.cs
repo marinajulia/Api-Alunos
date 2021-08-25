@@ -46,7 +46,7 @@ namespace Alunos.Domain.Service.Alunos
                 Id = x.Id,
                 Nome = x.Nome,
                 RA = x.RA
-            });
+            }).ToList();
         }
 
         public AlunosDto GetById(int id)
@@ -74,7 +74,7 @@ namespace Alunos.Domain.Service.Alunos
                 Nome = x.Nome,
                 RA = x.RA
 
-            });
+            }).ToList();
         }
 
         public AlunosDto Post(AlunosDto alunoDto)
