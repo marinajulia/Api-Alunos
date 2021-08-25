@@ -63,9 +63,9 @@ namespace Api_Alunos.Controllers.Professores
         }
 
         [HttpPost]
-        public IActionResult Post(ProfessoresDto user)
+        public IActionResult Post(ProfessoresDto professor)
         {
-            var response = _professoresService.Post(user);
+            var response = _professoresService.Post(professor);
 
             if (response == null)
                 return BadRequest(_notification.GetNotifications());

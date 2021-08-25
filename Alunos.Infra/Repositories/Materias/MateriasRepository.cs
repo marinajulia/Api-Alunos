@@ -47,6 +47,15 @@ namespace Alunos.Infra.Repositories.Materias
             }
         }
 
+        public MateriasEntity GetNames(string name)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var materia = context.Materias.FirstOrDefault(x => x.Nome.Trim().ToLower() == name.Trim().ToLower());
+                return materia;
+            }
+        }
+
         public MateriasEntity Post(MateriasEntity materia)
         {
             using (var context = new ApplicationContext())

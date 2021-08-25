@@ -86,6 +86,10 @@ namespace Alunos.Domain.Service.Materias
             if (materiaDto.Nome == "")
                 return _notification.AddWithReturn<MateriasDto>("Ops, você não pode inserir um campo vazio");
 
+            var consultaMateria = _materiasRepository.GetNames(materiaDto.Nome);
+            if (consultaMateria != null)
+                return _notification.AddWithReturn<MateriasDto>("Ops.. este professor já está cadastrado");
+
             var materia = _materiasRepository.Post(new MateriasEntity
             {
                 Nome = materiaDto.Nome,

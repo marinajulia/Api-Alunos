@@ -51,7 +51,7 @@ namespace Alunos.Infra.Repositories.Professores
         {
             using (var context = new ApplicationContext())
             {
-                var professor = context.Professores.FirstOrDefault(x => x.Nome == name);
+                var professor = context.Professores.FirstOrDefault(x => x.Nome.Trim().ToLower() == name.Trim().ToLower());
 
                 return professor;
             }

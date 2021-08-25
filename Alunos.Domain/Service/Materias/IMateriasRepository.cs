@@ -7,6 +7,7 @@ namespace Alunos.Domain.Service.Materias
     {
         IEnumerable<MateriasEntity> Get();
         MateriasEntity GetById(int id);
+        MateriasEntity GetNames(string name);
         MateriasEntity Post(MateriasEntity materia);
         IEnumerable<MateriasEntity> GetByName(string nome);
         bool Delete(MateriasEntity materia);
