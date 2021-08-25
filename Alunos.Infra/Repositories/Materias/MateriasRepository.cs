@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Alunos.Infra.Repositories.Materias
 {
-    public class MateriasRepository : IMateriaRepository
+    public class MateriasRepository : IMateriasRepository
     {
         public bool Delete(MateriasEntity materia)
         {

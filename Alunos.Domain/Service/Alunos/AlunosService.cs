@@ -98,7 +98,6 @@ namespace Alunos.Domain.Service.Alunos
                 Nome = aluno.Nome,
                 RA = aluno.RA
             };
-
         }
     }
 }

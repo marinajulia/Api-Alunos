@@ -35,6 +35,15 @@ namespace Alunos.Infra.Repositories.MateriaProfessores
             }
         }
 
+        public MateriaProfessoresEntity GetByIdMateria(int id)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var materiaProfessor = context.MateriaProfessores.FirstOrDefault(x => x.IdAMaterias == id);
+                return materiaProfessor;
+            }
+        }
+
         public IEnumerable<MateriaProfessoresEntity> GetByNameMateria(string nomeMateria)
         {
             throw new System.NotImplementedException();

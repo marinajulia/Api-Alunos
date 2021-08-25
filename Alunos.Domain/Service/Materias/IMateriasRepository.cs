@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Alunos.Domain.Service.Materias
 {
-    public interface IMateriaRepository
+    public interface IMateriasRepository
     {
         IEnumerable<MateriasEntity> Get();
         MateriasEntity GetById(int id);
