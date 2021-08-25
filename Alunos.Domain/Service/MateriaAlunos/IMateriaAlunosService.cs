@@ -7,6 +7,8 @@ namespace Alunos.Domain.Service.MateriaAlunos
     {
         MateriaAlunosDto Post(MateriaAlunosDto materiaAlunoDto);
         IEnumerable<MateriaAlunosDto> Get();
+        IEnumerable<MateriaAlunosDto> GetMateriasDoAluno(int idAluno);
+        IEnumerable<MateriaAlunosDto> GetAlunosdaMateria(int idMateria);
         MateriaAlunosDto GetById(int id);
         bool Delete(int materiaAluno);
         IEnumerable<MateriaAlunosDto> GetByNameMateria(string nome);

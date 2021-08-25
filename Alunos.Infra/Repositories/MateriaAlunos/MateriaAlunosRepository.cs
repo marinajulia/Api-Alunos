@@ -29,13 +29,25 @@ namespace Alunos.Infra.Repositories.MateriaAlunos
             }
         }
 
-        public bool GetByCadastroExistente(int idMateria, int idAluno)
+        public IEnumerable<MateriaAlunosEntity> GetAlunosDeUmaMateria(int idMateria)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var materiaAlunos = context.MateriaAlunos
+                    .Include(x => x.Materias)
+                    .Include(x => x.Alunos)
+                    .Where(x => x.IdMaterias == idMateria);
+                return materiaAlunos.ToList();
+            }
+        }
+
+        public MateriaAlunosEntity GetByCadastroExistente(int idMateria, int idAluno)
         {
             using (var context = new ApplicationContext())
             {
                 var cadastro = context.MateriaAlunos
                     .FirstOrDefault(x => x.IdMaterias == idMateria && x.IdAlunos == idAluno);
-                return true;
+                return cadastro;
             }
         }
 
@@ -76,6 +88,18 @@ namespace Alunos.Infra.Repositories.MateriaAlunos
         public IEnumerable<MateriaAlunosEntity> GetByNameMateria(string nomeMateria)
         {
             throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<MateriaAlunosEntity> GetMateriasDoAluno(int idAluno)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var materiaAlunos = context.MateriaAlunos
+                    .Include(x => x.Materias)
+                    .Include(x => x.Alunos)
+                    .Where(x => x.IdAlunos == idAluno);
+                return materiaAlunos.ToList();
+            }
         }
 
         public MateriaAlunosEntity Post(MateriaAlunosEntity materiaAluno)

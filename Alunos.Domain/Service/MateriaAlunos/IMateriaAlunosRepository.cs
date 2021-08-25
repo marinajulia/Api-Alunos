@@ -5,6 +5,8 @@ namespace Alunos.Domain.Service.MateriaAlunos
     public interface IMateriaAlunosRepository
     {
         IEnumerable<MateriaAlunosEntity> Get();
+        IEnumerable<MateriaAlunosEntity> GetMateriasDoAluno(int idAluno);
+        IEnumerable<MateriaAlunosEntity> GetAlunosDeUmaMateria(int idMateria);
         MateriaAlunosEntity GetById(int id);
         MateriaAlunosEntity GetByIdAluno(int id);
         MateriaAlunosEntity GetByIdMateria(int id);
@@ -12,7 +14,7 @@ namespace Alunos.Domain.Service.MateriaAlunos
         IEnumerable<MateriaAlunosEntity> GetByNameAluno(string nomeAluno);
         IEnumerable<MateriaAlunosEntity> GetByNameMateria(string nomeMateria);
         bool Delete(MateriaAlunosEntity materiaAlunos);
-        bool GetByCadastroExistente(int idMateria, int idAluno);
+        MateriaAlunosEntity GetByCadastroExistente(int idMateria, int idAluno);
 
     }
 }
