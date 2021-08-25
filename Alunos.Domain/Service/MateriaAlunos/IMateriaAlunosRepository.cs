@@ -12,5 +12,7 @@ namespace Alunos.Domain.Service.MateriaAlunos
         IEnumerable<MateriaAlunosEntity> GetByNameAluno(string nomeAluno);
         IEnumerable<MateriaAlunosEntity> GetByNameMateria(string nomeMateria);
         bool Delete(MateriaAlunosEntity materiaAlunos);
+        bool GetByCadastroExistente(int idMateria, int idAluno);
+
     }
 }

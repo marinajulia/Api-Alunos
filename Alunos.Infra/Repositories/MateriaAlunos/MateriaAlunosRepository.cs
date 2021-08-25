@@ -26,6 +26,16 @@ namespace Alunos.Infra.Repositories.MateriaAlunos
             }
         }
 
+        public bool GetByCadastroExistente(int idMateria, int idAluno)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var cadastro = context.MateriaAlunos
+                    .FirstOrDefault(x => x.IdMaterias == idMateria && x.IdAlunos == idAluno);
+                return true;
+            }
+        }
+
         public MateriaAlunosEntity GetById(int id)
         {
             using (var context = new ApplicationContext())

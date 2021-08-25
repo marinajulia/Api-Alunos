@@ -43,7 +43,8 @@ namespace Alunos.Domain.Service.MateriaAlunos
         {
             var materiaAluno = _materiaAlunosRepository.GetById(id);
             if (materiaAluno == null)
-                return _notification.AddWithReturn<MateriaAlunosDto>("Ops.. o Id da matéria e aluno não pode ser encontrado");
+                return _notification.AddWithReturn<MateriaAlunosDto>
+                    ("Ops.. o Id da matéria e aluno não pode ser encontrado");
             return new MateriaAlunosDto
             {
                 Id = materiaAluno.Id,
@@ -64,6 +65,13 @@ namespace Alunos.Domain.Service.MateriaAlunos
 
         public MateriaAlunosDto Post(MateriaAlunosDto materiaAlunoDto)
         {
+
+            var verificaCadastro = _materiaAlunosRepository
+                .GetByCadastroExistente(materiaAlunoDto.IdMaterias, materiaAlunoDto.IdAlunos);
+
+            if (verificaCadastro)
+                return _notification.AddWithReturn<MateriaAlunosDto>("Ops.. este cadastro já existe");
+
             var materiaAluno = _materiaAlunosRepository.Post(new MateriaAlunosEntity
             {
                 IdAlunos = materiaAlunoDto.IdAlunos,

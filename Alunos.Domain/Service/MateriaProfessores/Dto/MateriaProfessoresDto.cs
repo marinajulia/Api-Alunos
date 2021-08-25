@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
         public int IdProfessores { get; set; }
-        public int IdAMaterias { get; set; }
+        public int IdMaterias { get; set; }
     }
 }
