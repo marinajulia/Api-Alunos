@@ -56,6 +56,15 @@ namespace Alunos.Infra.Repositories.Alunos
             }
         }
 
+        public AlunosEntity GetNames(string name)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var aluno = context.Alunos.FirstOrDefault(x => x.Nome.Trim().ToLower() == name.Trim().ToLower());
+                return aluno;
+            }
+        }
+
         public AlunosEntity Post(AlunosEntity aluno)
         {
             using (var context = new ApplicationContext())

@@ -8,6 +8,7 @@ namespace Alunos.Domain.Service.Alunos
         IEnumerable<AlunosEntity> Get();
         IEnumerable<AlunosEntity> GetByName(string nome);
         AlunosEntity GetById(int id);
+        AlunosEntity GetNames(string name);
         AlunosEntity GetByRa(string ra);
         AlunosEntity Post(AlunosEntity aluno);
         bool Delete(AlunosEntity aluno);

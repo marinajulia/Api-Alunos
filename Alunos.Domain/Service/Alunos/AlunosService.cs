@@ -86,6 +86,10 @@ namespace Alunos.Domain.Service.Alunos
             if (consultaRa != null)
                 return _notification.AddWithReturn<AlunosDto>("Ops.. este aluno já está cadastrado");
 
+            var verificaCadastro = _alunosRepository.GetNames(alunoDto.Nome);
+            if (verificaCadastro != null)
+                return _notification.AddWithReturn<AlunosDto>("Este nome já está cadastrado");
+
             var aluno = _alunosRepository.Post(new AlunosEntity
             {
                 Nome = alunoDto.Nome,
