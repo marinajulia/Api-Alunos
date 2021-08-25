@@ -7,6 +7,7 @@ namespace Alunos.Domain.Service.MateriaProfessores
         IEnumerable<MateriaProfessoresEntity> Get();
         MateriaProfessoresEntity GetById(int id);
         MateriaProfessoresEntity GetByIdMateria(int id);
+        MateriaProfessoresEntity GetByIdProfessores(int id);
         MateriaProfessoresEntity Post(MateriaProfessoresEntity materiaProfessores);
         IEnumerable<MateriaProfessoresEntity> GetByNameProfessor(string nomeProfessor);
         IEnumerable<MateriaProfessoresEntity> GetByNameMateria(string nomeMateria);

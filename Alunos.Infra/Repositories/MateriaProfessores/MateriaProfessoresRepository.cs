@@ -39,8 +39,17 @@ namespace Alunos.Infra.Repositories.MateriaProfessores
         {
             using (var context = new ApplicationContext())
             {
-                var materiaProfessor = context.MateriaProfessores.FirstOrDefault(x => x.IdAMaterias == id);
-                return materiaProfessor;
+                var materia = context.MateriaProfessores.FirstOrDefault(x => x.IdMaterias == id);
+                return materia;
+            }
+        }
+
+        public MateriaProfessoresEntity GetByIdProfessores(int id)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var professor = context.MateriaProfessores.FirstOrDefault(x => x.IdProfessores == id);
+                return professor;
             }
         }
 
