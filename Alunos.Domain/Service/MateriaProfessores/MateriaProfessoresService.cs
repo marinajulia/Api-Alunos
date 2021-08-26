@@ -1,4 +1,5 @@
 ﻿using Alunos.Domain.Service.MateriaProfessores.Dto;
+using Alunos.Domain.Service.Professores;
 using Alunos.SharedKernel.Notification;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,14 @@ namespace Alunos.Domain.Service.MateriaProfessores
     {
         private readonly INotification _notification;
         private readonly IMateriaProfessoresRepository _materiaProfessoresRepository;
+        private readonly IProfessoresRepository _professoresRepository;
 
         public MateriaProfessoresService(IMateriaProfessoresRepository materiaProfessoresRepository,
-            INotification notification)
+            INotification notification, IProfessoresRepository professoresRepository)
         {
             _materiaProfessoresRepository = materiaProfessoresRepository;
             _notification = notification;
+            _professoresRepository = professoresRepository;
         }
 
         public bool Delete(int materiaProfessor)
@@ -62,6 +65,28 @@ namespace Alunos.Domain.Service.MateriaProfessores
         public IEnumerable<MateriaProfessoresDto> GetByNameProfessores(string nome)
         {
             throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<MateriaProfessoresDto> GetMateriasDoProfessor(int idProfessor)
+        {
+
+            var materiaProfessoes = _professoresRepository.GetById(idProfessor);
+            if (materiaProfessoes == null)
+                return _notification.AddWithReturn<IEnumerable<MateriaProfessoresDto>>("Ops.. este professor não existe");
+
+            var materiasDoProfessor = _materiaProfessoresRepository.GetMateriasDeUmProfessor(idProfessor);
+            if (materiasDoProfessor == null)
+                return _notification.AddWithReturn<IEnumerable<MateriaProfessoresDto>>
+                    ("Não foi encontrado nenhuma matéria com este professor");
+
+            return materiasDoProfessor.Select(x => new MateriaProfessoresDto
+            {
+                Id = x.Id,
+                IdMaterias = x.IdMaterias,
+                IdProfessores = x.IdProfessores,
+                Materias = x.Materias,
+                Professores = x.Professores,
+            }).ToList();
         }
 
         public MateriaProfessoresDto Post(MateriaProfessoresDto materiaProfessoresDto)

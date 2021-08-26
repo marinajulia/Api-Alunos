@@ -11,5 +11,6 @@ namespace Alunos.Domain.Service.MateriaProfessores
         bool Delete(int materiaProfessor);
         IEnumerable<MateriaProfessoresDto> GetByNameMateria(string nome);
         IEnumerable<MateriaProfessoresDto> GetByNameProfessores (string nome);
+        IEnumerable<MateriaProfessoresDto> GetMateriasDoProfessor(int idProfessor);
     }
 }

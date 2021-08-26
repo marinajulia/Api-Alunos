@@ -53,7 +53,7 @@ namespace Api_Alunos.Controllers.MateriaAlunos
         //[Authorize]
         public IActionResult GetByMAteriasDeUmAluno(int idAluno)
         {
-            var materiaAluno = _materiaAlunosService.GetAlunosdaMateria(idAluno);
+            var materiaAluno = _materiaAlunosService.GetMateriasDoAluno(idAluno);
             if (materiaAluno == null)
                 return BadRequest(_notification.GetNotifications());
 

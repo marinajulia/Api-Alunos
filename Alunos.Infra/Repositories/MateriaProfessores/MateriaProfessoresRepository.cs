@@ -1,5 +1,6 @@
 ﻿using Alunos.Domain.Service.MateriaProfessores;
 using Alunos.Infra.Data;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -70,6 +71,18 @@ namespace Alunos.Infra.Repositories.MateriaProfessores
         public IEnumerable<MateriaProfessoresEntity> GetByNameProfessor(string nomeProfessor)
         {
             throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<MateriaProfessoresEntity> GetMateriasDeUmProfessor(int idProfessor)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var materiaProfessores = context.MateriaProfessores
+                    .Include(x => x.Materias)
+                    .Include(x => x.Professores)
+                    .Where(x => x.IdProfessores == idProfessor);
+                return materiaProfessores.ToList();
+            }
         }
 
         public MateriaProfessoresEntity Post(MateriaProfessoresEntity materiaProfessores)
