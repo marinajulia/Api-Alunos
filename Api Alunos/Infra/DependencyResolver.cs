@@ -31,9 +31,9 @@ namespace Api_Alunos.Infra
             services.AddScoped<INotification, Notification>();
             services.AddDbContext<ApplicationContext>();
 
+            Context(services);
             Repositories(services);
             Services(services);
-            Context(services);
         }
         public static void Context(IServiceCollection services)
         {
