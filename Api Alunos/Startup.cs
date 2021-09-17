@@ -20,7 +20,7 @@ namespace Api_Alunos
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllers();
+           
             #region
 
             services.AddCors(options => {

@@ -33,11 +33,15 @@ namespace Api_Alunos.Infra
 
             Repositories(services);
             Services(services);
+            Context(services);
         }
-
-        public static void Repositories(IServiceCollection services)
+        public static void Context(IServiceCollection services)
         {
             services.AddScoped<ApplicationContext, ApplicationContext>();
+
+        }
+        public static void Repositories(IServiceCollection services)
+        {
             services.AddScoped<IAlunosRepository, AlunosRepository>();
             services.AddScoped<IMateriaAlunosRepository, MateriaAlunosRepository>();
             services.AddScoped<IMateriaProfessoresRepository, MateriaProfessoresRepository>();
